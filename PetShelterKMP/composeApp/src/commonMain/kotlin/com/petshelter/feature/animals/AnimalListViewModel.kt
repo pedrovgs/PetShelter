@@ -2,10 +2,11 @@ package com.petshelter.feature.animals
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.petshelter.core.data.AnimalRepository
 import com.petshelter.core.model.Animal
+import com.petshelter.core.model.AnimalSex
 import com.petshelter.core.model.AnimalSize
 import com.petshelter.core.model.AnimalType
+import com.petshelter.core.repository.AnimalRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,7 +30,7 @@ data class AnimalListUiState(
     val animals: List<Animal> = emptyList(),
     val filteredAnimals: List<Animal> = emptyList(),
     val availableBreeds: List<String> = emptyList(),
-    val selectedSex: String? = null,
+    val selectedSex: AnimalSex? = null,
     val selectedSize: AnimalSize? = null,
     val selectedBreed: String? = null,
     val selectedAge: AgeFilter? = null,
@@ -49,7 +50,7 @@ class AnimalListViewModel(
         loadAnimals()
     }
 
-    fun onSexFilterChanged(sex: String?) {
+    fun onSexFilterChanged(sex: AnimalSex?) {
         _uiState.update { it.copy(selectedSex = sex) }
         applyFilters()
     }
@@ -128,7 +129,7 @@ class AnimalListViewModel(
 
     private fun matchesSex(
         animal: Animal,
-        sex: String?,
+        sex: AnimalSex?,
     ): Boolean = sex == null || animal.sex == sex
 
     private fun matchesSize(

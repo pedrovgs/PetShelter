@@ -174,31 +174,28 @@ The project follows Clean Architecture with MVVM for the presentation layer. All
 
 ```
 core/                    # Shared foundation (pure Kotlin + platform actuals)
-├── model/               # Domain entities (Document, Annotation, etc.)
-├── repository/          # Repository interfaces
-├── data/                # Repository implementations
-├── usecase/             # Use cases (single-responsibility, invoke operator)
-├── service/             # Platform services (PdfRenderer, ThumbnailRenderer, etc.)
-├── storage/             # File storage abstraction
-├── db/                  # SQLDelight database driver factory
-└── platform/            # Platform detection (expect/actual)
+├── model/               # Domain entities (Animal, AnimalType, AnimalSize, AnimalSex, AnimalScores, Clock)
+├── repository/          # Repository interfaces (AnimalRepository)
+├── data/                # Repository implementations (AnimalRepositoryImpl)
+├── usecase/             # Use cases (MatchAnimalsUseCase — single-responsibility, invoke operator)
+├── service/             # Application services (Logger, MetricReporter, MetricEvent, FeatureFlag, FeatureFlagProvider, InMemoryFeatureFlagProvider)
+├── storage/             # File storage abstraction (FileStorage)
+└── platform/            # Platform detection (expect/actual Platform.kt)
 
-feature/                 # Feature modules, each with ui/ and optional usecase/
-├── home/ui/             # Home page (QuickActions, RecentDocuments, etc.)
-├── documents/ui/        # All documents page
-├── favourites/ui/       # Favourites page
-├── trash/ui/            # Trash page
-├── importing/           # PDF import (ui/ + usecase/)
-├── note/ui/             # Note editor
-├── pdf/ui/              # PDF viewer
-└── pdfmarkup/ui/        # PDF annotation editor
+feature/                 # Feature modules
+├── adopt/               # AdoptScreen — main landing page showing all animals
+├── dogs/                # DogsToAdoptScreen — filtered list of dogs
+├── cats/                # CatsToAdoptScreen — filtered list of cats
+├── animals/             # AnimalListScreen/ViewModel, AnimalDetailScreen/ViewModel, AnimalCard, FilterBar
+├── center/              # CenterInfoScreen — shelter information
+├── contact/             # ContactScreen — contact details
+└── questionnaire/       # QuestionnaireScreen/ViewModel, QuestionnaireForm, QuestionnaireResults, QuestionnaireModels, MatchingAlgorithm
 
-components/              # Shared UI components (AppCard, AppButton, Modal, NavigationSidebar, DocumentCard, etc.)
+components/              # Shared UI components (AppButton, AppCard, AppTextField, Modal, Toast, NavigationSidebar, BottomNavigationBar)
 navigation/              # Type-safe navigation (Route.kt, AppNavigation.kt)
-designsystem/            # Theme, colors, typography, spacing, radii, icons
-di/                      # Koin DI modules (AppModule.kt + platform modules)
-util/                    # Shared utilities (ImageDecoder, etc.)
-debug/                   # Debug info page
+designsystem/            # Theme, colors, typography, spacing, animation durations, icons (PetShelterIcons)
+di/                      # Koin DI modules (AppModule.kt, PlatformModule.kt)
+util/                    # Shared utilities (ImageDecoder, PlatformEmail, PlatformUrl, TransformImageUrl)
 ```
 
 ### State Management
@@ -215,13 +212,14 @@ debug/                   # Debug info page
 
 ### Navigation
 - Type-safe navigation using `@Serializable` route definitions in a sealed interface hierarchy.
-- Routes defined in `navigation/Route.kt`.
+- Routes defined in `navigation/Route.kt`: `Route.Adopt`, `Route.DogsToAdopt`, `Route.CatsToAdopt`, `Route.CenterInfo`, `Route.Contact`, `Route.AnimalDetail(animalId)`.
 - Navigation graph built in `navigation/AppNavigation.kt` using `NavHost` and `composable<Route>` DSL.
-- Navigate with `navController.navigate(Route.Detail(id = "..."))`.
+- Responsive layout: sidebar navigation on large screens (>=600dp), bottom navigation bar on small screens.
+- Navigate with `navController.navigate(Route.AnimalDetail(animalId = "..."))`.
 
 ### Repository Pattern
-- Interfaces in `core/repository/` define the contract.
-- Implementations in `core/data/` use platform data sources.
+- `AnimalRepository` interface in `core/repository/` defines the contract (`getAllAnimals`, `getAnimals(type)`, `getAnimalById`).
+- `AnimalRepositoryImpl` in `core/data/` provides the implementation.
 - Repositories are injected into use cases and ViewModels via Koin.
 
 ### Component Conventions

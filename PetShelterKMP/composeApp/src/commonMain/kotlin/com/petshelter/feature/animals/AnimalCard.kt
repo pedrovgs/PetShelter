@@ -28,6 +28,7 @@ import coil3.compose.SubcomposeAsyncImage
 import com.petshelter.components.AppCard
 import com.petshelter.core.model.Animal
 import com.petshelter.core.model.AnimalScores
+import com.petshelter.core.model.AnimalSex
 import com.petshelter.core.model.AnimalSize
 import com.petshelter.core.model.AnimalType
 import com.petshelter.designsystem.PetShelterTheme
@@ -162,19 +163,17 @@ fun AnimalBadge(
     }
 }
 
-internal fun sexSymbol(sex: String): String =
+internal fun sexSymbol(sex: AnimalSex): String =
     when (sex) {
-        "Hembra" -> "\u2640\uFE0F"
-        "Macho" -> "\u2642\uFE0F"
-        else -> ""
+        AnimalSex.FEMALE -> "\u2640\uFE0F"
+        AnimalSex.MALE -> "\u2642\uFE0F"
     }
 
 @Composable
-internal fun sexDisplayLabel(sex: String): String =
+internal fun sexDisplayLabel(sex: AnimalSex): String =
     when (sex) {
-        "Hembra" -> stringResource(Res.string.filter_sex_female)
-        "Macho" -> stringResource(Res.string.filter_sex_male)
-        else -> sex
+        AnimalSex.FEMALE -> stringResource(Res.string.filter_sex_female)
+        AnimalSex.MALE -> stringResource(Res.string.filter_sex_male)
     }
 
 @Composable
@@ -213,7 +212,7 @@ internal fun previewAnimal() =
         id = "preview-1",
         animalType = AnimalType.DOG,
         name = "Pandora",
-        sex = "Hembra",
+        sex = AnimalSex.FEMALE,
         breed = "Malinois",
         size = AnimalSize.LARGE,
         ageMonths = 48,

@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.petshelter.core.model.AnimalSex
 import com.petshelter.core.model.AnimalSize
 import com.petshelter.core.model.AnimalType
 import com.petshelter.designsystem.PetShelterTheme
@@ -50,12 +51,12 @@ import petshelter.composeapp.generated.resources.filter_size_small
 
 @Composable
 fun FilterBar(
-    selectedSex: String?,
+    selectedSex: AnimalSex?,
     selectedSize: AnimalSize?,
     selectedBreed: String?,
     selectedAge: AgeFilter?,
     availableBreeds: List<String>,
-    onSexChanged: (String?) -> Unit,
+    onSexChanged: (AnimalSex?) -> Unit,
     onSizeChanged: (AnimalSize?) -> Unit,
     onBreedChanged: (String?) -> Unit,
     onAgeChanged: (AgeFilter?) -> Unit,
@@ -132,14 +133,19 @@ private fun AnimalTypeFilterDropdown(
 
 @Composable
 private fun SexFilterDropdown(
-    selectedSex: String?,
-    onSexChanged: (String?) -> Unit,
+    selectedSex: AnimalSex?,
+    onSexChanged: (AnimalSex?) -> Unit,
 ) {
     val allLabel = stringResource(Res.string.filter_all_sexes)
     val femaleLabel = stringResource(Res.string.filter_sex_female)
     val maleLabel = stringResource(Res.string.filter_sex_male)
-    val displayText = selectedSex?.let { sexDisplayLabel(it, femaleLabel, maleLabel) } ?: allLabel
-    val options = listOf(null, "Hembra", "Macho")
+    val displayText =
+        when (selectedSex) {
+            AnimalSex.FEMALE -> femaleLabel
+            AnimalSex.MALE -> maleLabel
+            null -> allLabel
+        }
+    val options = listOf(null, AnimalSex.FEMALE, AnimalSex.MALE)
     val labels = listOf(allLabel, "\u2640\uFE0F $femaleLabel", "\u2642\uFE0F $maleLabel")
 
     FilterChipDropdown(
@@ -150,17 +156,6 @@ private fun SexFilterDropdown(
         onOptionSelected = onSexChanged,
     )
 }
-
-private fun sexDisplayLabel(
-    sex: String,
-    femaleLabel: String,
-    maleLabel: String,
-): String =
-    when (sex) {
-        "Hembra" -> femaleLabel
-        "Macho" -> maleLabel
-        else -> sex
-    }
 
 @Composable
 private fun SizeFilterDropdown(
@@ -336,7 +331,7 @@ private fun FilterBarPreview() {
 private fun FilterBarActivePreview() {
     PetShelterTheme {
         FilterBar(
-            selectedSex = "Hembra",
+            selectedSex = AnimalSex.FEMALE,
             selectedSize = AnimalSize.LARGE,
             selectedBreed = null,
             selectedAge = AgeFilter.UP_TO_4_YEARS,

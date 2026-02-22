@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,15 +25,12 @@ import androidx.compose.ui.unit.dp
 import com.petshelter.components.AppButton
 import com.petshelter.components.ButtonSize
 import com.petshelter.components.ButtonVariant
-import com.petshelter.core.model.Animal
-import com.petshelter.core.model.AnimalScores
-import com.petshelter.core.model.AnimalSize
-import com.petshelter.core.model.AnimalType
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
 import com.petshelter.designsystem.Spacing
 import com.petshelter.feature.animals.AnimalCard
+import com.petshelter.feature.animals.previewAnimal
 import org.jetbrains.compose.resources.stringResource
 import petshelter.composeapp.generated.resources.Res
 import petshelter.composeapp.generated.resources.results_count
@@ -63,7 +59,7 @@ fun QuestionnaireResults(
             Text(
                 text = stringResource(Res.string.results_title),
                 style = PetShelterTypography.Heading2,
-                color = MaterialTheme.colorScheme.onBackground,
+                color = PetShelterTheme.colors.TextPrimary,
             )
             AppButton(
                 text = stringResource(Res.string.results_retake),
@@ -78,7 +74,7 @@ fun QuestionnaireResults(
         Text(
             text = stringResource(Res.string.results_count, matchedAnimals.size),
             style = PetShelterTypography.Caption,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = PetShelterTheme.colors.TextSecondary,
             modifier = Modifier.padding(horizontal = Spacing.Medium),
         )
 
@@ -125,10 +121,10 @@ private fun MatchBadge(
 ) {
     val badgeColor =
         when {
-            percentage >= 80 -> MaterialTheme.colorScheme.tertiary
-            percentage >= 60 -> MaterialTheme.colorScheme.primary
+            percentage >= 80 -> PetShelterTheme.colors.Success
+            percentage >= 60 -> PetShelterTheme.colors.Primary
             percentage >= 40 -> PetShelterTheme.colors.Warning
-            else -> MaterialTheme.colorScheme.outline
+            else -> PetShelterTheme.colors.Border
         }
 
     Box(
@@ -142,7 +138,7 @@ private fun MatchBadge(
         Text(
             text = stringResource(Res.string.results_match_label, percentage),
             style = PetShelterTypography.Caption,
-            color = MaterialTheme.colorScheme.onPrimary,
+            color = PetShelterTheme.colors.TextInverse,
         )
     }
 }
@@ -162,7 +158,7 @@ private fun EmptyResults() {
             Text(
                 text = stringResource(Res.string.results_empty),
                 style = PetShelterTypography.Body,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = PetShelterTheme.colors.TextSecondary,
                 textAlign = TextAlign.Center,
             )
         }
@@ -197,32 +193,3 @@ private fun QuestionnaireResultsEmptyPreview() {
         )
     }
 }
-
-private fun previewAnimal() =
-    Animal(
-        id = "preview-1",
-        animalType = AnimalType.DOG,
-        name = "Pandora",
-        sex = "Hembra",
-        breed = "Malinois",
-        size = AnimalSize.LARGE,
-        ageMonths = 48,
-        description = "Pandora is a beautiful Malinois Shepherd.",
-        images = emptyList(),
-        videos = emptyList(),
-        sourceUrl = "https://example.com",
-        scores =
-            AnimalScores(
-                friendly = 7,
-                goodWithAnimals = 4,
-                leashTrained = 6,
-                reactive = 6,
-                specialNeeds = 3,
-                energy = 9,
-                goodWithHumans = 6,
-                shy = 2,
-                activity = 9,
-                trainability = 10,
-                dailyActivityRequirement = 9,
-            ),
-    )

@@ -15,7 +15,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -99,19 +98,19 @@ fun QuestionnaireForm(
         Text(
             text = stringResource(Res.string.questionnaire_title),
             style = PetShelterTypography.Heading2,
-            color = MaterialTheme.colorScheme.primary,
+            color = PetShelterTheme.colors.Primary,
         )
         Spacer(Modifier.height(Spacing.XSmall))
         Text(
             text = stringResource(Res.string.questionnaire_subtitle),
             style = PetShelterTypography.Body,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = PetShelterTheme.colors.TextSecondary,
         )
         Spacer(Modifier.height(Spacing.Small))
         Text(
             text = stringResource(Res.string.questionnaire_mandatory_notice),
             style = PetShelterTypography.Caption,
-            color = MaterialTheme.colorScheme.error,
+            color = PetShelterTheme.colors.Error,
         )
 
         Spacer(Modifier.height(Spacing.Medium))
@@ -125,8 +124,8 @@ fun QuestionnaireForm(
         LinearProgressIndicator(
             progress = { progress },
             modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(Radii.Full)),
-            color = MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = PetShelterTheme.colors.Primary,
+            trackColor = PetShelterTheme.colors.TextSecondary,
         )
 
         Spacer(Modifier.height(Spacing.Large))
@@ -329,7 +328,7 @@ private fun QuestionSection(
         Text(
             text = "$number. $question",
             style = PetShelterTypography.Body,
-            color = MaterialTheme.colorScheme.secondary,
+            color = PetShelterTheme.colors.Primary,
         )
         Spacer(Modifier.height(Spacing.Small))
         content()
@@ -367,15 +366,15 @@ private fun OptionChip(
 ) {
     val backgroundColor =
         if (isSelected) {
-            MaterialTheme.colorScheme.primary
+            PetShelterTheme.colors.Primary
         } else {
-            MaterialTheme.colorScheme.surfaceContainerHighest
+            PetShelterTheme.colors.BackgroundTertiary
         }
     val textColor =
         if (isSelected) {
-            MaterialTheme.colorScheme.onPrimary
+            PetShelterTheme.colors.TextInverse
         } else {
-            MaterialTheme.colorScheme.onSurface
+            PetShelterTheme.colors.TextPrimary
         }
 
     Text(

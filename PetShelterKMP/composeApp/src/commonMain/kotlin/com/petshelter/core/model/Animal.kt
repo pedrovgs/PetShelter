@@ -8,7 +8,7 @@ data class Animal(
     val id: String,
     @SerialName("animal_type") val animalType: AnimalType,
     val name: String,
-    val sex: String,
+    val sex: AnimalSex,
     val breed: String,
     val size: AnimalSize,
     @SerialName("age_months") val ageMonths: Int? = null,
@@ -26,6 +26,15 @@ enum class AnimalType {
 
     @SerialName("cat")
     CAT,
+}
+
+@Serializable
+enum class AnimalSex {
+    @SerialName("Hembra")
+    FEMALE,
+
+    @SerialName("Macho")
+    MALE,
 }
 
 @Serializable

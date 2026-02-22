@@ -7,7 +7,6 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -70,7 +69,7 @@ internal fun QuestionnaireScreenContent(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
-                CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
+                CircularProgressIndicator(color = PetShelterTheme.colors.Primary)
             }
         }
         state.errorMessage != null -> {
@@ -81,7 +80,7 @@ internal fun QuestionnaireScreenContent(
                 Text(
                     text = state.errorMessage,
                     style = PetShelterTypography.Body,
-                    color = MaterialTheme.colorScheme.error,
+                    color = PetShelterTheme.colors.Error,
                     textAlign = TextAlign.Center,
                 )
             }

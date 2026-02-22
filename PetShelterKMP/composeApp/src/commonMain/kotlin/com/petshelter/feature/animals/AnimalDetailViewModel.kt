@@ -2,8 +2,8 @@ package com.petshelter.feature.animals
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.petshelter.core.data.AnimalRepository
 import com.petshelter.core.model.Animal
+import com.petshelter.core.repository.AnimalRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

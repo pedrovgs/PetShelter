@@ -85,6 +85,8 @@ import petshelter.composeapp.generated.resources.score_shy
 import petshelter.composeapp.generated.resources.score_special_needs
 import petshelter.composeapp.generated.resources.score_trainability
 
+private const val SHELTER_EMAIL = "contacto@protectoramalaga.com"
+
 @Composable
 fun AnimalDetailScreen(
     viewModel: AnimalDetailViewModel,
@@ -831,7 +833,7 @@ private fun AdoptSection(animalName: String) {
         Spacer(Modifier.height(Spacing.Small))
         AppButton(
             text = stringResource(Res.string.detail_adopt_button, animalName),
-            onClick = { openEmail("contacto@protectoramalaga.com") },
+            onClick = { openEmail(SHELTER_EMAIL) },
             variant = ButtonVariant.Primary,
             size = ButtonSize.Large,
             modifier = Modifier.fillMaxWidth(),

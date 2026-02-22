@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.petshelter.core.model.Animal
+import com.petshelter.core.model.AnimalSex
 import com.petshelter.core.model.AnimalSize
 import com.petshelter.core.model.AnimalType
 import com.petshelter.designsystem.PetShelterTheme
@@ -72,7 +73,7 @@ fun AnimalListScreen(
 internal fun AnimalListContent(
     state: AnimalListUiState,
     onAnimalClick: (String) -> Unit,
-    onSexChanged: (String?) -> Unit,
+    onSexChanged: (AnimalSex?) -> Unit,
     onSizeChanged: (AnimalSize?) -> Unit,
     onBreedChanged: (String?) -> Unit,
     onAgeChanged: (AgeFilter?) -> Unit,
@@ -292,7 +293,7 @@ private fun AnimalListContentEmptyPreview() {
                     isLoading = false,
                     filteredAnimals = emptyList(),
                     availableBreeds = listOf("Malinois"),
-                    selectedSex = "Hembra",
+                    selectedSex = AnimalSex.FEMALE,
                 ),
             onAnimalClick = {},
             onSexChanged = {},
