@@ -23,6 +23,27 @@ PetShelter is a **Kotlin Multiplatform** application that helps animal shelters 
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/1.png" width="720" alt="Dog listings — desktop dark mode" /><br/>
+  <em>Browse all animals with smart filters — desktop dark mode</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/2.png" width="320" alt="Dog listings — mobile light mode" />&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/3.png" width="320" alt="Questionnaire results — mobile light mode" /><br/>
+  <em>Mobile light mode — animal grid &amp; questionnaire match results</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/4.png" width="720" alt="Animal detail page — desktop dark mode" /><br/>
+  <img src="screenshots/5.png" width="720" alt="Animal detail with personality scores and adopt button — desktop dark mode" /><br/>
+  <em>Animal detail page with photo carousel, personality attributes &amp; adopt button</em>
+</p>
+
+---
+
 ## 🆓 Free for Animal Shelters
 
 This project is **completely free** for any animal shelter, rescue organization, or animal welfare group to use. 🎉

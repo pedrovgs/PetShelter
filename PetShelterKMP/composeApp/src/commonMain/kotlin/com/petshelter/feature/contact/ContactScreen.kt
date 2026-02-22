@@ -20,10 +20,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,8 +28,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.petshelter.components.AppButton
-import com.petshelter.components.AppTextField
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
@@ -47,12 +41,6 @@ import petshelter.composeapp.generated.resources.center_info_phone
 import petshelter.composeapp.generated.resources.contact_address_label
 import petshelter.composeapp.generated.resources.contact_direct_title
 import petshelter.composeapp.generated.resources.contact_email_label
-import petshelter.composeapp.generated.resources.contact_form_email
-import petshelter.composeapp.generated.resources.contact_form_message
-import petshelter.composeapp.generated.resources.contact_form_name
-import petshelter.composeapp.generated.resources.contact_form_send
-import petshelter.composeapp.generated.resources.contact_form_subject
-import petshelter.composeapp.generated.resources.contact_form_title
 import petshelter.composeapp.generated.resources.contact_map_placeholder
 import petshelter.composeapp.generated.resources.contact_map_title
 import petshelter.composeapp.generated.resources.contact_phone_label
@@ -70,7 +58,6 @@ fun ContactScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(Spacing.Large),
     ) {
         PageHeader()
-        ContactFormSection()
         DirectContactSection()
         MapSection()
         SocialMediaSection()
@@ -94,54 +81,6 @@ private fun PageHeader() {
             style = PetShelterTypography.Heading1,
             color = PetShelterTheme.colors.TextPrimary,
             textAlign = TextAlign.Center,
-        )
-    }
-}
-
-@Composable
-private fun ContactFormSection() {
-    var name by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var subject by remember { mutableStateOf("") }
-    var message by remember { mutableStateOf("") }
-
-    SectionCard {
-        SectionTitle(emoji = "\u2709\uFE0F", title = stringResource(Res.string.contact_form_title))
-        Spacer(Modifier.height(Spacing.Medium))
-        AppTextField(
-            value = name,
-            onValueChange = { name = it },
-            placeholder = stringResource(Res.string.contact_form_name),
-            label = stringResource(Res.string.contact_form_name),
-        )
-        Spacer(Modifier.height(Spacing.Small))
-        AppTextField(
-            value = email,
-            onValueChange = { email = it },
-            placeholder = stringResource(Res.string.contact_form_email),
-            label = stringResource(Res.string.contact_form_email),
-        )
-        Spacer(Modifier.height(Spacing.Small))
-        AppTextField(
-            value = subject,
-            onValueChange = { subject = it },
-            placeholder = stringResource(Res.string.contact_form_subject),
-            label = stringResource(Res.string.contact_form_subject),
-        )
-        Spacer(Modifier.height(Spacing.Small))
-        AppTextField(
-            value = message,
-            onValueChange = { message = it },
-            placeholder = stringResource(Res.string.contact_form_message),
-            label = stringResource(Res.string.contact_form_message),
-            singleLine = false,
-            modifier = Modifier.height(120.dp),
-        )
-        Spacer(Modifier.height(Spacing.Medium))
-        AppButton(
-            text = stringResource(Res.string.contact_form_send),
-            onClick = {},
-            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

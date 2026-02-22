@@ -33,11 +33,13 @@ data class AnimalListUiState(
     val selectedSize: AnimalSize? = null,
     val selectedBreed: String? = null,
     val selectedAge: AgeFilter? = null,
+    val searchQuery: String = "",
+    val selectedAnimalType: AnimalType? = null,
     val errorMessage: String? = null,
 )
 
 class AnimalListViewModel(
-    private val animalType: AnimalType,
+    private val animalType: AnimalType?,
     private val repository: AnimalRepository,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(AnimalListUiState())
@@ -67,10 +69,25 @@ class AnimalListViewModel(
         applyFilters()
     }
 
+    fun onSearchQueryChanged(query: String) {
+        _uiState.update { it.copy(searchQuery = query) }
+        applyFilters()
+    }
+
+    fun onAnimalTypeFilterChanged(type: AnimalType?) {
+        _uiState.update { it.copy(selectedAnimalType = type, selectedBreed = null) }
+        applyFilters()
+    }
+
     private fun loadAnimals() {
         viewModelScope.launch {
             try {
-                val animals = repository.getAnimals(animalType)
+                val animals =
+                    if (animalType != null) {
+                        repository.getAnimals(animalType)
+                    } else {
+                        repository.getAllAnimals()
+                    }
                 val breeds = animals.map { it.breed }.distinct().sorted()
                 _uiState.update {
                     it.copy(
@@ -92,12 +109,20 @@ class AnimalListViewModel(
         _uiState.update { state ->
             val filtered =
                 state.animals.filter { animal ->
-                    matchesSex(animal, state.selectedSex) &&
+                    matchesAnimalType(animal, state.selectedAnimalType) &&
+                        matchesSex(animal, state.selectedSex) &&
                         matchesSize(animal, state.selectedSize) &&
                         matchesBreed(animal, state.selectedBreed) &&
-                        matchesAge(animal, state.selectedAge)
+                        matchesAge(animal, state.selectedAge) &&
+                        matchesSearchQuery(animal, state.searchQuery)
                 }
-            state.copy(filteredAnimals = filtered)
+            val breeds =
+                state.animals
+                    .filter { matchesAnimalType(it, state.selectedAnimalType) }
+                    .map { it.breed }
+                    .distinct()
+                    .sorted()
+            state.copy(filteredAnimals = filtered, availableBreeds = breeds)
         }
     }
 
@@ -123,5 +148,20 @@ class AnimalListViewModel(
         if (age == null) return true
         val months = animal.ageMonths ?: return false
         return months <= age.maxMonths
+    }
+
+    private fun matchesAnimalType(
+        animal: Animal,
+        type: AnimalType?,
+    ): Boolean = type == null || animal.animalType == type
+
+    private fun matchesSearchQuery(
+        animal: Animal,
+        query: String,
+    ): Boolean {
+        if (query.isBlank()) return true
+        val lowerQuery = query.lowercase()
+        return animal.name.lowercase().contains(lowerQuery) ||
+            animal.breed.lowercase().contains(lowerQuery)
     }
 }

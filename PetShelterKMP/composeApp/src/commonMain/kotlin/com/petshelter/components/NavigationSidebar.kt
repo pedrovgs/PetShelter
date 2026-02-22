@@ -49,6 +49,7 @@ import org.jetbrains.compose.resources.stringResource
 import petshelter.composeapp.generated.resources.Res
 import petshelter.composeapp.generated.resources.app_icon
 import petshelter.composeapp.generated.resources.app_name
+import petshelter.composeapp.generated.resources.nav_adopt
 import petshelter.composeapp.generated.resources.nav_cats_to_adopt
 import petshelter.composeapp.generated.resources.nav_center_info
 import petshelter.composeapp.generated.resources.nav_contact
@@ -56,6 +57,7 @@ import petshelter.composeapp.generated.resources.nav_dogs_to_adopt
 import petshelter.composeapp.generated.resources.sidebar_version
 
 enum class SidebarItem {
+    Adopt,
     DogsToAdopt,
     CatsToAdopt,
     CenterInfo,
@@ -162,6 +164,13 @@ private fun SidebarNavigationItems(
     collapsed: Boolean,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(Spacing.XSmall)) {
+        SidebarNavItem(
+            icon = PetShelterIcons.Heart,
+            label = stringResource(Res.string.nav_adopt),
+            selected = selectedItem == SidebarItem.Adopt,
+            onClick = { onItemSelected(SidebarItem.Adopt) },
+            collapsed = collapsed,
+        )
         SidebarNavItem(
             icon = PetShelterIcons.Dog,
             label = stringResource(Res.string.nav_dogs_to_adopt),
@@ -311,6 +320,12 @@ fun BottomNavigationBar(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         BottomNavItem(
+            icon = PetShelterIcons.Heart,
+            label = stringResource(Res.string.nav_adopt),
+            selected = selectedItem == SidebarItem.Adopt,
+            onClick = { onItemSelected(SidebarItem.Adopt) },
+        )
+        BottomNavItem(
             icon = PetShelterIcons.Dog,
             label = stringResource(Res.string.nav_dogs_to_adopt),
             selected = selectedItem == SidebarItem.DogsToAdopt,
@@ -377,7 +392,7 @@ private fun BottomNavItem(
 private fun BottomNavigationBarPreview() {
     PetShelterTheme {
         BottomNavigationBar(
-            selectedItem = SidebarItem.DogsToAdopt,
+            selectedItem = SidebarItem.Adopt,
             onItemSelected = {},
         )
     }
@@ -387,7 +402,7 @@ private fun BottomNavigationBarPreview() {
 @Composable
 private fun NavigationSidebarExpandedPreview() {
     NavigationSidebar(
-        selectedItem = SidebarItem.DogsToAdopt,
+        selectedItem = SidebarItem.Adopt,
         onItemSelected = {},
         onToggleCollapsed = {},
     )
@@ -397,7 +412,7 @@ private fun NavigationSidebarExpandedPreview() {
 @Composable
 private fun NavigationSidebarCollapsedPreview() {
     NavigationSidebar(
-        selectedItem = SidebarItem.DogsToAdopt,
+        selectedItem = SidebarItem.Adopt,
         onItemSelected = {},
         collapsed = true,
         onToggleCollapsed = {},

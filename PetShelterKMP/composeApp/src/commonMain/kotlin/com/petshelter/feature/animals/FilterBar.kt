@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.petshelter.core.model.AnimalSize
+import com.petshelter.core.model.AnimalType
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
@@ -34,9 +35,12 @@ import com.petshelter.designsystem.icons.PetShelterIcons
 import org.jetbrains.compose.resources.stringResource
 import petshelter.composeapp.generated.resources.Res
 import petshelter.composeapp.generated.resources.filter_all_ages
+import petshelter.composeapp.generated.resources.filter_all_animals
 import petshelter.composeapp.generated.resources.filter_all_breeds
 import petshelter.composeapp.generated.resources.filter_all_sexes
 import petshelter.composeapp.generated.resources.filter_all_sizes
+import petshelter.composeapp.generated.resources.filter_cats_only
+import petshelter.composeapp.generated.resources.filter_dogs_only
 import petshelter.composeapp.generated.resources.filter_sex_female
 import petshelter.composeapp.generated.resources.filter_sex_male
 import petshelter.composeapp.generated.resources.filter_size_extra_large
@@ -56,11 +60,22 @@ fun FilterBar(
     onBreedChanged: (String?) -> Unit,
     onAgeChanged: (AgeFilter?) -> Unit,
     modifier: Modifier = Modifier,
+    showAnimalTypeFilter: Boolean = false,
+    selectedAnimalType: AnimalType? = null,
+    onAnimalTypeChanged: (AnimalType?) -> Unit = {},
 ) {
     LazyRow(
         modifier = modifier.padding(horizontal = Spacing.Medium),
         horizontalArrangement = Arrangement.spacedBy(Spacing.Small),
     ) {
+        if (showAnimalTypeFilter) {
+            item {
+                AnimalTypeFilterDropdown(
+                    selectedAnimalType = selectedAnimalType,
+                    onAnimalTypeChanged = onAnimalTypeChanged,
+                )
+            }
+        }
         item {
             SexFilterDropdown(
                 selectedSex = selectedSex,
@@ -87,6 +102,32 @@ fun FilterBar(
             )
         }
     }
+}
+
+@Composable
+private fun AnimalTypeFilterDropdown(
+    selectedAnimalType: AnimalType?,
+    onAnimalTypeChanged: (AnimalType?) -> Unit,
+) {
+    val allLabel = stringResource(Res.string.filter_all_animals)
+    val dogsLabel = stringResource(Res.string.filter_dogs_only)
+    val catsLabel = stringResource(Res.string.filter_cats_only)
+    val displayText =
+        when (selectedAnimalType) {
+            AnimalType.DOG -> dogsLabel
+            AnimalType.CAT -> catsLabel
+            null -> allLabel
+        }
+    val options = listOf(null, AnimalType.DOG, AnimalType.CAT)
+    val labels = listOf(allLabel, "\uD83D\uDC36 $dogsLabel", "\uD83D\uDC31 $catsLabel")
+
+    FilterChipDropdown(
+        label = displayText,
+        isActive = selectedAnimalType != null,
+        options = options,
+        optionLabels = labels,
+        onOptionSelected = onAnimalTypeChanged,
+    )
 }
 
 @Composable

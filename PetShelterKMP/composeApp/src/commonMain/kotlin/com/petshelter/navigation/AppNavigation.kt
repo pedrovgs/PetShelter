@@ -26,6 +26,7 @@ import com.petshelter.components.BottomNavigationBar
 import com.petshelter.components.NavigationSidebar
 import com.petshelter.components.SidebarItem
 import com.petshelter.designsystem.AnimationDuration
+import com.petshelter.feature.adopt.AdoptScreen
 import com.petshelter.feature.cats.CatsToAdoptScreen
 import com.petshelter.feature.center.CenterInfoScreen
 import com.petshelter.feature.contact.ContactScreen
@@ -38,7 +39,7 @@ fun AppNavigation(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    var selectedItem by rememberSaveable { mutableStateOf(SidebarItem.DogsToAdopt) }
+    var selectedItem by rememberSaveable { mutableStateOf(SidebarItem.Adopt) }
     var sidebarCollapsed by rememberSaveable { mutableStateOf(false) }
 
     BoxWithConstraints(modifier = modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
@@ -116,13 +117,20 @@ private fun NavigationContent(
     Box(modifier = modifier.fillMaxSize()) {
         NavHost(
             navController = navController,
-            startDestination = Route.DogsToAdopt,
+            startDestination = Route.Adopt,
             modifier = Modifier.fillMaxSize(),
             enterTransition = { fadeIn(tween(AnimationDuration.NORMAL)) },
             exitTransition = { fadeOut(tween(AnimationDuration.NORMAL)) },
             popEnterTransition = { fadeIn(tween(AnimationDuration.NORMAL)) },
             popExitTransition = { fadeOut(tween(AnimationDuration.NORMAL)) },
         ) {
+            composable<Route.Adopt> {
+                AdoptScreen(
+                    onAnimalClick = { animalId ->
+                        navController.navigate(Route.AnimalDetail(animalId))
+                    },
+                )
+            }
             composable<Route.DogsToAdopt> {
                 DogsToAdoptScreen(
                     onAnimalClick = { animalId ->
@@ -160,6 +168,7 @@ private fun navigateToItem(
 ) {
     val route: Route =
         when (item) {
+            SidebarItem.Adopt -> Route.Adopt
             SidebarItem.DogsToAdopt -> Route.DogsToAdopt
             SidebarItem.CatsToAdopt -> Route.CatsToAdopt
             SidebarItem.CenterInfo -> Route.CenterInfo

@@ -46,6 +46,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
+import com.petshelter.components.AppButton
+import com.petshelter.components.ButtonSize
+import com.petshelter.components.ButtonVariant
 import com.petshelter.core.model.Animal
 import com.petshelter.core.model.AnimalScores
 import com.petshelter.designsystem.PetShelterTheme
@@ -53,6 +56,7 @@ import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
 import com.petshelter.designsystem.Spacing
 import com.petshelter.designsystem.icons.PetShelterIcons
+import com.petshelter.util.openEmail
 import com.petshelter.util.openUrl
 import com.petshelter.util.transformImageUrl
 import org.jetbrains.compose.resources.stringResource
@@ -61,6 +65,8 @@ import org.koin.core.parameter.parametersOf
 import petshelter.composeapp.generated.resources.Res
 import petshelter.composeapp.generated.resources.back
 import petshelter.composeapp.generated.resources.close
+import petshelter.composeapp.generated.resources.detail_adopt_button
+import petshelter.composeapp.generated.resources.detail_adopt_title
 import petshelter.composeapp.generated.resources.detail_description
 import petshelter.composeapp.generated.resources.detail_scores
 import petshelter.composeapp.generated.resources.detail_scores_disclaimer
@@ -200,6 +206,7 @@ private fun AnimalDetailBody(
                     VideoCarousel(videoLinks = videoLinks)
                 }
                 SourceSection(sourceUrl = animal.sourceUrl)
+                AdoptSection(animalName = animal.name)
                 Spacer(Modifier.height(Spacing.XXLarge))
             }
 
@@ -812,6 +819,22 @@ private fun SourceSection(sourceUrl: String) {
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.clickable { openUrl(sourceUrl) },
+        )
+    }
+}
+
+@Composable
+private fun AdoptSection(animalName: String) {
+    SectionDivider()
+    Column(modifier = Modifier.padding(horizontal = Spacing.Large, vertical = Spacing.Medium)) {
+        SectionTitle(text = stringResource(Res.string.detail_adopt_title))
+        Spacer(Modifier.height(Spacing.Small))
+        AppButton(
+            text = stringResource(Res.string.detail_adopt_button, animalName),
+            onClick = { openEmail("contacto@protectoramalaga.com") },
+            variant = ButtonVariant.Primary,
+            size = ButtonSize.Large,
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

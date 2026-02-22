@@ -5,6 +5,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed interface Route {
     @Serializable
+    data object Adopt : Route
+
+    @Serializable
     data object DogsToAdopt : Route
 
     @Serializable

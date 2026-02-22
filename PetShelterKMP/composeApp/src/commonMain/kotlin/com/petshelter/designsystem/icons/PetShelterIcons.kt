@@ -1279,6 +1279,33 @@ object PetShelterIcons {
             }.build()
     }
 
+    val Heart: ImageVector by lazy {
+        ImageVector
+            .Builder(
+                name = "Heart",
+                defaultWidth = 20.dp,
+                defaultHeight = 20.dp,
+                viewportWidth = 20f,
+                viewportHeight = 20f,
+            ).apply {
+                path(
+                    stroke = SolidColor(Color.Black),
+                    strokeLineWidth = 1.5f,
+                    strokeLineCap = StrokeCap.Round,
+                    strokeLineJoin = StrokeJoin.Round,
+                ) {
+                    moveTo(10f, 17f)
+                    curveTo(10f, 17f, 2.5f, 12.5f, 2.5f, 7.5f)
+                    curveTo(2.5f, 5.5f, 4f, 3.5f, 6.25f, 3.5f)
+                    curveTo(8f, 3.5f, 9.5f, 4.5f, 10f, 6f)
+                    curveTo(10.5f, 4.5f, 12f, 3.5f, 13.75f, 3.5f)
+                    curveTo(16f, 3.5f, 17.5f, 5.5f, 17.5f, 7.5f)
+                    curveTo(17.5f, 12.5f, 10f, 17f, 10f, 17f)
+                    close()
+                }
+            }.build()
+    }
+
     val Dog: ImageVector by lazy {
         ImageVector
             .Builder(

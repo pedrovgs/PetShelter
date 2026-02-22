@@ -10,6 +10,8 @@ class AnimalRepository {
     private val json = Json { ignoreUnknownKeys = true }
     private var cachedAnimals: List<Animal>? = null
 
+    suspend fun getAllAnimals(): List<Animal> = loadAnimals()
+
     suspend fun getAnimals(type: AnimalType): List<Animal> = loadAnimals().filter { it.animalType == type }
 
     suspend fun getAnimalById(id: String): Animal? = loadAnimals().find { it.id == id }

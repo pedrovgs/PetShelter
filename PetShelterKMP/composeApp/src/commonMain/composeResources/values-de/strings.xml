@@ -3,6 +3,7 @@
     <string name="app_name">PetShelter</string>
 
     <!-- Navigation -->
+    <string name="nav_adopt">Adoptieren</string>
     <string name="nav_dogs_to_adopt">Hunde</string>
     <string name="nav_cats_to_adopt">Katzen</string>
     <string name="nav_center_info">Zentrum</string>
@@ -46,12 +47,6 @@
 
     <!-- Contact -->
     <string name="contact_title">Kontaktieren Sie Uns</string>
-    <string name="contact_form_title">Senden Sie Uns eine Nachricht</string>
-    <string name="contact_form_name">Ihr Name</string>
-    <string name="contact_form_email">Ihre E-Mail</string>
-    <string name="contact_form_subject">Betreff</string>
-    <string name="contact_form_message">Ihre Nachricht</string>
-    <string name="contact_form_send">Nachricht Senden</string>
     <string name="contact_direct_title">Direkter Kontakt</string>
     <string name="contact_address_label">Adresse</string>
     <string name="contact_phone_label">Telefon</string>
@@ -76,6 +71,10 @@
     <string name="size_label_large">L</string>
     <string name="size_label_extra_large">XL</string>
     <string name="animals_results_count">%1$d Tiere gefunden</string>
+    <string name="search_animals_placeholder">Nach Name oder Rasse suchen...</string>
+    <string name="filter_all_animals">Alle Tiere</string>
+    <string name="filter_dogs_only">Hunde</string>
+    <string name="filter_cats_only">Katzen</string>
     <string name="animals_empty_message">Keine Tiere entsprechen Ihren aktuellen Filtern. Versuchen Sie, Ihre Suchkriterien anzupassen.</string>
 
     <!-- Animal Detail -->
@@ -83,6 +82,8 @@
     <string name="detail_scores">Personlichkeitsmerkmale</string>
     <string name="detail_videos">Videos</string>
     <string name="detail_source">Quelle</string>
+    <string name="detail_adopt_title">Adoptieren</string>
+    <string name="detail_adopt_button">Ich mochte %1$s adoptieren!</string>
     <string name="detail_scores_disclaimer">Diese Bewertungen basieren auf allgemeinen Rasseeigenschaften und Beobachtungen im Tierheim. Jedes Tier ist einzigartig und wunderbar — wir laden Sie ein, uns zu besuchen und sie personlich kennenzulernen!</string>
 
     <!-- Score Labels -->
@@ -103,6 +104,53 @@
 
     <!-- Errors -->
     <string name="error_generic">Ein Fehler ist aufgetreten</string>
+
+    <!-- Questionnaire -->
+    <string name="questionnaire_title">Finde dein perfektes Match</string>
+    <string name="questionnaire_subtitle">Beantworte ein paar Fragen uber deinen Lebensstil und wir finden die besten Tiere fur dich.</string>
+    <string name="questionnaire_mandatory_notice">* Alle Fragen sind Pflichtfelder</string>
+    <string name="questionnaire_submit">Mein Match finden</string>
+    <string name="questionnaire_q_animal_type">Suchst du einen Hund oder eine Katze?</string>
+    <string name="questionnaire_animal_dog">Hund</string>
+    <string name="questionnaire_animal_cat">Katze</string>
+    <string name="questionnaire_animal_either">Beides</string>
+    <string name="questionnaire_q_size">Welche Grosse bevorzugst du?</string>
+    <string name="questionnaire_size_small">Klein</string>
+    <string name="questionnaire_size_medium">Mittel</string>
+    <string name="questionnaire_size_large">Gross</string>
+    <string name="questionnaire_size_any">Jede Grosse</string>
+    <string name="questionnaire_q_walk_time">Wie lange kannst du deinen Hund taglich spazieren fuhren?</string>
+    <string name="questionnaire_walk_short">Kurz (bis 30 Min.)</string>
+    <string name="questionnaire_walk_moderate">Mittel (30-60 Min.)</string>
+    <string name="questionnaire_walk_long">Lang (60+ Min.)</string>
+    <string name="questionnaire_q_alone_time">Wie lange wird das Tier allein zu Hause sein?</string>
+    <string name="questionnaire_alone_few_hours">Ein paar Stunden</string>
+    <string name="questionnaire_alone_half_day">Einen halben Tag</string>
+    <string name="questionnaire_alone_full_day">Den grossten Teil des Tages</string>
+    <string name="questionnaire_q_activity">Wie aktiv bist du?</string>
+    <string name="questionnaire_activity_low">Niedrig</string>
+    <string name="questionnaire_activity_moderate">Mittel</string>
+    <string name="questionnaire_activity_high">Hoch</string>
+    <string name="questionnaire_q_affection">Welche Personlichkeit bevorzugst du?</string>
+    <string name="questionnaire_affection_shy">Schuchtern und ruhig</string>
+    <string name="questionnaire_affection_balanced">Ausgeglichen</string>
+    <string name="questionnaire_affection_affectionate">Anhanglig und gesellig</string>
+    <string name="questionnaire_q_other_animals">Hast du andere Haustiere zu Hause?</string>
+    <string name="questionnaire_q_kids">Hast du Kinder zu Hause?</string>
+    <string name="questionnaire_q_tricks">Mochtest du deinem Tier Tricks beibringen?</string>
+    <string name="questionnaire_q_special_needs">Bist du offen fur die Adoption eines Tieres mit besonderen Bedurfnissen?</string>
+    <string name="questionnaire_yes">Ja</string>
+    <string name="questionnaire_no">Nein</string>
+    <string name="questionnaire_special_yes">Ja, auf jeden Fall</string>
+    <string name="questionnaire_special_maybe">Vielleicht</string>
+    <string name="questionnaire_special_no">Lieber nicht</string>
+
+    <!-- Questionnaire Results -->
+    <string name="results_title">Deine Treffer</string>
+    <string name="results_count">%1$d Treffer gefunden</string>
+    <string name="results_retake">Wiederholen</string>
+    <string name="results_empty">Keine Treffer fur deine Kriterien gefunden. Versuche den Fragebogen mit anderen Antworten erneut auszufullen.</string>
+    <string name="results_match_label">%1$d%%</string>
 
     <!-- Common -->
     <string name="back">Zuruck</string>
