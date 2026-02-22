@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="composeApp/src/commonMain/composeResources/drawable/app_icon.png" width="120" alt="PetShelter Logo" />
+  <img src="PetShelterKMP/composeApp/src/commonMain/composeResources/drawable/app_icon.png" width="120" alt="PetShelter Logo" />
 </p>
 
 <h1 align="center">🐾 PetShelter KMP</h1>
@@ -181,7 +181,7 @@ Contributions are welcome! Whether you're fixing a bug 🐛, adding a feature �
 
 ## 📄 License
 
-This project is free to use for any animal shelter or rescue organization. Fork it, modify it, and make it your own. 🐾
+This project is licensed under the [Apache License 2.0](./LICENSE). It is free to use for any animal shelter or rescue organization. Fork it, modify it, and make it your own. 🐾
 
 ---
 
