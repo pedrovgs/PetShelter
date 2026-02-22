@@ -3,8 +3,76 @@
     <string name="app_name">PetShelter</string>
 
     <!-- Navigation -->
-    <string name="nav_homepage">Home</string>
+    <string name="nav_dogs_to_adopt">Dogs</string>
+    <string name="nav_cats_to_adopt">Cats</string>
+    <string name="nav_center_info">Center</string>
+    <string name="nav_contact">Contact</string>
     <string name="sidebar_version">v%1$s</string>
+
+    <!-- Placeholder pages -->
+    <string name="coming_soon_title">Coming Soon!</string>
+    <string name="coming_soon_dogs_message">We are preparing a list of adorable dogs looking for a forever home. Check back soon!</string>
+    <string name="coming_soon_cats_message">We are preparing a list of lovely cats waiting to meet you. Check back soon!</string>
+
+    <!-- Center Info -->
+    <string name="center_info_title">El Centro</string>
+    <string name="center_info_organization">Sociedad Protectora de Animales de Malaga</string>
+    <string name="center_info_about_title">About Us</string>
+    <string name="center_info_about_description">The Sociedad Protectora de Animales de Malaga is a non-profit organization dedicated to rescuing, rehabilitating, and rehoming abandoned and mistreated animals in the province of Malaga. Founded with the mission of giving every animal a second chance, we work tirelessly to ensure that dogs and cats in our care receive the love, medical attention, and shelter they deserve while they wait for their forever families.</string>
+    <string name="center_info_mission_title">Our Mission</string>
+    <string name="center_info_mission_description">We believe every animal deserves a life free from suffering. Our mission is to rescue animals in need, provide them with veterinary care and rehabilitation, promote responsible pet ownership through education, and find loving permanent homes for every animal that comes through our doors. We also work closely with local authorities and communities to reduce animal abandonment.</string>
+    <string name="center_info_services_title">What We Do</string>
+    <string name="center_info_service_rescue">Rescue and shelter abandoned, lost, and mistreated animals</string>
+    <string name="center_info_service_veterinary">Provide comprehensive veterinary care including vaccinations, sterilization, and treatment</string>
+    <string name="center_info_service_adoption">Manage responsible adoption processes to match animals with loving families</string>
+    <string name="center_info_service_education">Conduct educational programs about animal welfare and responsible ownership</string>
+    <string name="center_info_service_sterilization">Promote sterilization campaigns to control the stray population</string>
+    <string name="center_info_visiting_title">Visiting Hours</string>
+    <string name="center_info_visiting_weekdays">Monday to Friday: 10:00 - 14:00 and 16:00 - 18:00</string>
+    <string name="center_info_visiting_weekends">Saturdays, Sundays, and holidays: 10:00 - 14:00</string>
+    <string name="center_info_visiting_note">We recommend calling ahead to arrange your visit and ensure we can give you the best attention.</string>
+    <string name="center_info_location_title">Location</string>
+    <string name="center_info_address">Camino de las Erizas, 4, 29011 Malaga</string>
+    <string name="center_info_phone">951 946 977</string>
+    <string name="center_info_email">contacto@protectoramalaga.com</string>
+    <string name="center_info_social_title">Follow Us</string>
+    <string name="center_info_social_description">Stay connected with us on social media to see our latest rescues, adoption success stories, and upcoming events.</string>
+    <string name="center_info_help_title">How You Can Help</string>
+    <string name="center_info_help_adopt">Adopt a furry friend and give them a second chance</string>
+    <string name="center_info_help_volunteer">Volunteer your time at the shelter</string>
+    <string name="center_info_help_donate">Make a donation to support our work</string>
+    <string name="center_info_help_foster">Become a foster family for animals awaiting adoption</string>
+    <string name="center_info_help_spread">Share our posts and help us spread the word</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Contact Us</string>
+    <string name="contact_form_title">Send Us a Message</string>
+    <string name="contact_form_name">Your name</string>
+    <string name="contact_form_email">Your email</string>
+    <string name="contact_form_subject">Subject</string>
+    <string name="contact_form_message">Your message</string>
+    <string name="contact_form_send">Send Message</string>
+    <string name="contact_direct_title">Direct Contact</string>
+    <string name="contact_address_label">Address</string>
+    <string name="contact_phone_label">Phone</string>
+    <string name="contact_email_label">Email</string>
+    <string name="contact_social_title">Social Media</string>
+    <string name="contact_map_title">Find Us</string>
+    <string name="contact_map_placeholder">Map: Camino de las Erizas, 4, 29011 Malaga</string>
+
+    <!-- Animal List -->
+    <string name="filter_all_sexes">All Sexes</string>
+    <string name="filter_all_sizes">All Sizes</string>
+    <string name="filter_all_breeds">All Breeds</string>
+    <string name="filter_all_ages">All Ages</string>
+    <string name="animals_results_count">%1$d animals found</string>
+    <string name="animals_empty_message">No animals match your current filters. Try adjusting your search criteria.</string>
+
+    <!-- Animal Detail -->
+    <string name="detail_description">Description</string>
+    <string name="detail_scores">Personality Scores</string>
+    <string name="detail_videos">Videos</string>
+    <string name="detail_source">Source</string>
 
     <!-- Errors -->
     <string name="error_generic">An error occurred</string>

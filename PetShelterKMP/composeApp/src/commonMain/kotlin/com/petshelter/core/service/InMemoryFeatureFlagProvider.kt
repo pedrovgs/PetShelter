@@ -15,10 +15,12 @@ class InMemoryFeatureFlagProvider(
         return value
     }
 
-    override fun observeFlag(flag: FeatureFlag): Flow<Boolean> =
-        overrides.map { it[flag.key] ?: flag.defaultValue }
+    override fun observeFlag(flag: FeatureFlag): Flow<Boolean> = overrides.map { it[flag.key] ?: flag.defaultValue }
 
-    fun setOverride(flag: FeatureFlag, enabled: Boolean) {
+    fun setOverride(
+        flag: FeatureFlag,
+        enabled: Boolean,
+    ) {
         overrides.value = overrides.value + (flag.key to enabled)
     }
 }

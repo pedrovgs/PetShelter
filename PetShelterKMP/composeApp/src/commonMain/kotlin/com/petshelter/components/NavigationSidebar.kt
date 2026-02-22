@@ -2,7 +2,6 @@ package com.petshelter.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,22 +38,28 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.petshelter.designsystem.AnimationDuration
+import com.petshelter.designsystem.Layout
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
-import com.petshelter.designsystem.Layout
 import com.petshelter.designsystem.Radii
 import com.petshelter.designsystem.Spacing
 import com.petshelter.designsystem.icons.PetShelterIcons
-import petshelter.composeapp.generated.resources.Res
-import petshelter.composeapp.generated.resources.app_name
-import petshelter.composeapp.generated.resources.petshelter_logo
-import petshelter.composeapp.generated.resources.nav_homepage
-import petshelter.composeapp.generated.resources.sidebar_version
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import petshelter.composeapp.generated.resources.Res
+import petshelter.composeapp.generated.resources.app_icon
+import petshelter.composeapp.generated.resources.app_name
+import petshelter.composeapp.generated.resources.nav_cats_to_adopt
+import petshelter.composeapp.generated.resources.nav_center_info
+import petshelter.composeapp.generated.resources.nav_contact
+import petshelter.composeapp.generated.resources.nav_dogs_to_adopt
+import petshelter.composeapp.generated.resources.sidebar_version
 
 enum class SidebarItem {
-    Homepage,
+    DogsToAdopt,
+    CatsToAdopt,
+    CenterInfo,
+    Contact,
 }
 
 @Composable
@@ -87,81 +92,123 @@ fun NavigationSidebar(
                     )
                 }.padding(vertical = Spacing.Large, horizontal = if (collapsed) Spacing.Small else Spacing.Large),
     ) {
-        // Logo + toggle button
-        if (collapsed) {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Image(
-                    painter = painterResource(Res.drawable.petshelter_logo),
-                    contentDescription = stringResource(Res.string.app_name),
-                    modifier =
-                        Modifier
-                            .size(28.dp)
-                            .clip(RoundedCornerShape(Radii.Medium))
-                            .clickable { onToggleCollapsed?.invoke() },
-                )
-            }
-        } else {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(start = Spacing.XSmall),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Image(
-                    painter = painterResource(Res.drawable.petshelter_logo),
-                    contentDescription = stringResource(Res.string.app_name),
-                    modifier =
-                        Modifier
-                            .size(28.dp)
-                            .clip(RoundedCornerShape(Radii.Medium))
-                            .clickable { onToggleCollapsed?.invoke() },
-                )
-                Spacer(Modifier.width(Spacing.Small))
-                Text(
-                    text = stringResource(Res.string.app_name),
-                    style = PetShelterTypography.Heading3.copy(fontWeight = FontWeight.SemiBold),
-                    color = PetShelterTheme.colors.TextPrimary,
-                    modifier = Modifier.weight(1f).graphicsLayer { alpha = if (collapsed) 0f else 1f },
-                    maxLines = 1,
-                    overflow = TextOverflow.Clip,
-                )
-            }
-        }
+        SidebarHeader(collapsed = collapsed, onToggleCollapsed = onToggleCollapsed)
 
         Spacer(Modifier.height(Spacing.XLarge))
 
-        // Navigation items
-        Column(verticalArrangement = Arrangement.spacedBy(Spacing.XSmall)) {
-            SidebarNavItem(
-                icon = PetShelterIcons.Homepage,
-                label = stringResource(Res.string.nav_homepage),
-                selected = selectedItem == SidebarItem.Homepage,
-                onClick = { onItemSelected(SidebarItem.Homepage) },
-                collapsed = collapsed,
-            )
-        }
+        SidebarNavigationItems(
+            selectedItem = selectedItem,
+            onItemSelected = onItemSelected,
+            collapsed = collapsed,
+        )
 
         Spacer(Modifier.weight(1f))
 
-        // Footer
-        HorizontalDivider(color = PetShelterTheme.colors.BorderLight)
-        Spacer(Modifier.height(Spacing.Large))
+        SidebarFooter(collapsed = collapsed)
+    }
+}
 
-        // Version number
-        Text(
-            text = stringResource(Res.string.sidebar_version, "1.0.0"),
-            style = PetShelterTypography.Caption,
-            color = PetShelterTheme.colors.TextTertiary,
-            modifier =
-                if (collapsed) {
-                    Modifier.align(Alignment.CenterHorizontally)
-                } else {
-                    Modifier.padding(horizontal = Spacing.Medium)
-                },
-            maxLines = 1,
+@Composable
+private fun SidebarHeader(
+    collapsed: Boolean,
+    onToggleCollapsed: (() -> Unit)?,
+) {
+    if (collapsed) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Image(
+                painter = painterResource(Res.drawable.app_icon),
+                contentDescription = stringResource(Res.string.app_name),
+                modifier =
+                    Modifier
+                        .size(28.dp)
+                        .clip(RoundedCornerShape(Radii.Medium))
+                        .clickable { onToggleCollapsed?.invoke() },
+            )
+        }
+    } else {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(start = Spacing.XSmall),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painter = painterResource(Res.drawable.app_icon),
+                contentDescription = stringResource(Res.string.app_name),
+                modifier =
+                    Modifier
+                        .size(28.dp)
+                        .clip(RoundedCornerShape(Radii.Medium))
+                        .clickable { onToggleCollapsed?.invoke() },
+            )
+            Spacer(Modifier.width(Spacing.Small))
+            Text(
+                text = stringResource(Res.string.app_name),
+                style = PetShelterTypography.Heading3.copy(fontWeight = FontWeight.SemiBold),
+                color = PetShelterTheme.colors.TextPrimary,
+                modifier = Modifier.weight(1f).graphicsLayer { alpha = if (collapsed) 0f else 1f },
+                maxLines = 1,
+                overflow = TextOverflow.Clip,
+            )
+        }
+    }
+}
+
+@Composable
+private fun SidebarNavigationItems(
+    selectedItem: SidebarItem,
+    onItemSelected: (SidebarItem) -> Unit,
+    collapsed: Boolean,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(Spacing.XSmall)) {
+        SidebarNavItem(
+            icon = PetShelterIcons.Dog,
+            label = stringResource(Res.string.nav_dogs_to_adopt),
+            selected = selectedItem == SidebarItem.DogsToAdopt,
+            onClick = { onItemSelected(SidebarItem.DogsToAdopt) },
+            collapsed = collapsed,
+        )
+        SidebarNavItem(
+            icon = PetShelterIcons.Cat,
+            label = stringResource(Res.string.nav_cats_to_adopt),
+            selected = selectedItem == SidebarItem.CatsToAdopt,
+            onClick = { onItemSelected(SidebarItem.CatsToAdopt) },
+            collapsed = collapsed,
+        )
+        SidebarNavItem(
+            icon = PetShelterIcons.Building,
+            label = stringResource(Res.string.nav_center_info),
+            selected = selectedItem == SidebarItem.CenterInfo,
+            onClick = { onItemSelected(SidebarItem.CenterInfo) },
+            collapsed = collapsed,
+        )
+        SidebarNavItem(
+            icon = PetShelterIcons.Phone,
+            label = stringResource(Res.string.nav_contact),
+            selected = selectedItem == SidebarItem.Contact,
+            onClick = { onItemSelected(SidebarItem.Contact) },
+            collapsed = collapsed,
         )
     }
+}
+
+@Composable
+private fun SidebarFooter(collapsed: Boolean) {
+    HorizontalDivider(color = PetShelterTheme.colors.BorderLight)
+    Spacer(Modifier.height(Spacing.Large))
+    Text(
+        text = stringResource(Res.string.sidebar_version, "1.0.0"),
+        style = PetShelterTypography.Caption,
+        color = PetShelterTheme.colors.TextTertiary,
+        modifier =
+            if (collapsed) {
+                Modifier.fillMaxWidth()
+            } else {
+                Modifier.padding(horizontal = Spacing.Medium)
+            },
+        maxLines = 1,
+    )
 }
 
 @Composable
@@ -264,10 +311,28 @@ fun BottomNavigationBar(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         BottomNavItem(
-            icon = PetShelterIcons.Homepage,
-            label = stringResource(Res.string.nav_homepage),
-            selected = selectedItem == SidebarItem.Homepage,
-            onClick = { onItemSelected(SidebarItem.Homepage) },
+            icon = PetShelterIcons.Dog,
+            label = stringResource(Res.string.nav_dogs_to_adopt),
+            selected = selectedItem == SidebarItem.DogsToAdopt,
+            onClick = { onItemSelected(SidebarItem.DogsToAdopt) },
+        )
+        BottomNavItem(
+            icon = PetShelterIcons.Cat,
+            label = stringResource(Res.string.nav_cats_to_adopt),
+            selected = selectedItem == SidebarItem.CatsToAdopt,
+            onClick = { onItemSelected(SidebarItem.CatsToAdopt) },
+        )
+        BottomNavItem(
+            icon = PetShelterIcons.Building,
+            label = stringResource(Res.string.nav_center_info),
+            selected = selectedItem == SidebarItem.CenterInfo,
+            onClick = { onItemSelected(SidebarItem.CenterInfo) },
+        )
+        BottomNavItem(
+            icon = PetShelterIcons.Phone,
+            label = stringResource(Res.string.nav_contact),
+            selected = selectedItem == SidebarItem.Contact,
+            onClick = { onItemSelected(SidebarItem.Contact) },
         )
     }
 }
@@ -312,7 +377,7 @@ private fun BottomNavItem(
 private fun BottomNavigationBarPreview() {
     PetShelterTheme {
         BottomNavigationBar(
-            selectedItem = SidebarItem.Homepage,
+            selectedItem = SidebarItem.DogsToAdopt,
             onItemSelected = {},
         )
     }
@@ -322,7 +387,7 @@ private fun BottomNavigationBarPreview() {
 @Composable
 private fun NavigationSidebarExpandedPreview() {
     NavigationSidebar(
-        selectedItem = SidebarItem.Homepage,
+        selectedItem = SidebarItem.DogsToAdopt,
         onItemSelected = {},
         onToggleCollapsed = {},
     )
@@ -332,7 +397,7 @@ private fun NavigationSidebarExpandedPreview() {
 @Composable
 private fun NavigationSidebarCollapsedPreview() {
     NavigationSidebar(
-        selectedItem = SidebarItem.Homepage,
+        selectedItem = SidebarItem.DogsToAdopt,
         onItemSelected = {},
         collapsed = true,
         onToggleCollapsed = {},
