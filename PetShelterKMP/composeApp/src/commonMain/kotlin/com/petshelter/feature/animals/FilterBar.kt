@@ -26,7 +26,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.petshelter.core.model.AnimalSize
-import petshelter.composeapp.generated.resources.filter_all_ages
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
@@ -34,9 +33,16 @@ import com.petshelter.designsystem.Spacing
 import com.petshelter.designsystem.icons.PetShelterIcons
 import org.jetbrains.compose.resources.stringResource
 import petshelter.composeapp.generated.resources.Res
+import petshelter.composeapp.generated.resources.filter_all_ages
 import petshelter.composeapp.generated.resources.filter_all_breeds
 import petshelter.composeapp.generated.resources.filter_all_sexes
 import petshelter.composeapp.generated.resources.filter_all_sizes
+import petshelter.composeapp.generated.resources.filter_sex_female
+import petshelter.composeapp.generated.resources.filter_sex_male
+import petshelter.composeapp.generated.resources.filter_size_extra_large
+import petshelter.composeapp.generated.resources.filter_size_large
+import petshelter.composeapp.generated.resources.filter_size_medium
+import petshelter.composeapp.generated.resources.filter_size_small
 
 @Composable
 fun FilterBar(
@@ -89,9 +95,11 @@ private fun SexFilterDropdown(
     onSexChanged: (String?) -> Unit,
 ) {
     val allLabel = stringResource(Res.string.filter_all_sexes)
-    val displayText = selectedSex ?: allLabel
+    val femaleLabel = stringResource(Res.string.filter_sex_female)
+    val maleLabel = stringResource(Res.string.filter_sex_male)
+    val displayText = selectedSex?.let { sexDisplayLabel(it, femaleLabel, maleLabel) } ?: allLabel
     val options = listOf(null, "Hembra", "Macho")
-    val labels = listOf(allLabel, "\u2640\uFE0F Hembra", "\u2642\uFE0F Macho")
+    val labels = listOf(allLabel, "\u2640\uFE0F $femaleLabel", "\u2642\uFE0F $maleLabel")
 
     FilterChipDropdown(
         label = displayText,
@@ -101,6 +109,17 @@ private fun SexFilterDropdown(
         onOptionSelected = onSexChanged,
     )
 }
+
+private fun sexDisplayLabel(
+    sex: String,
+    femaleLabel: String,
+    maleLabel: String,
+): String =
+    when (sex) {
+        "Hembra" -> femaleLabel
+        "Macho" -> maleLabel
+        else -> sex
+    }
 
 @Composable
 private fun SizeFilterDropdown(
@@ -244,12 +263,13 @@ private fun FilterChip(
     }
 }
 
+@Composable
 private fun sizeDisplayLabel(size: AnimalSize): String =
     when (size) {
-        AnimalSize.SMALL -> "Small"
-        AnimalSize.MEDIUM -> "Medium"
-        AnimalSize.LARGE -> "Large"
-        AnimalSize.EXTRA_LARGE -> "Extra Large"
+        AnimalSize.SMALL -> stringResource(Res.string.filter_size_small)
+        AnimalSize.MEDIUM -> stringResource(Res.string.filter_size_medium)
+        AnimalSize.LARGE -> stringResource(Res.string.filter_size_large)
+        AnimalSize.EXTRA_LARGE -> stringResource(Res.string.filter_size_extra_large)
     }
 
 @Preview

@@ -65,14 +65,41 @@
     <string name="filter_all_sizes">All Sizes</string>
     <string name="filter_all_breeds">All Breeds</string>
     <string name="filter_all_ages">All Ages</string>
+    <string name="filter_sex_female">Female</string>
+    <string name="filter_sex_male">Male</string>
+    <string name="filter_size_small">Small</string>
+    <string name="filter_size_medium">Medium</string>
+    <string name="filter_size_large">Large</string>
+    <string name="filter_size_extra_large">Extra Large</string>
+    <string name="size_label_small">S</string>
+    <string name="size_label_medium">M</string>
+    <string name="size_label_large">L</string>
+    <string name="size_label_extra_large">XL</string>
     <string name="animals_results_count">%1$d animals found</string>
     <string name="animals_empty_message">No animals match your current filters. Try adjusting your search criteria.</string>
 
     <!-- Animal Detail -->
     <string name="detail_description">Description</string>
-    <string name="detail_scores">Personality Scores</string>
+    <string name="detail_scores">Personality Attributes</string>
     <string name="detail_videos">Videos</string>
     <string name="detail_source">Source</string>
+    <string name="detail_scores_disclaimer">These scores are estimated based on general breed characteristics and shelter observations. Every animal is unique and wonderful — we encourage you to visit and meet them in person!</string>
+
+    <!-- Score Labels -->
+    <string name="score_friendly">Friendly</string>
+    <string name="score_good_with_animals">Good with animals</string>
+    <string name="score_good_with_humans">Good with humans</string>
+    <string name="score_leash_trained">Leash trained</string>
+    <string name="score_energy">Energy</string>
+    <string name="score_activity">Activity</string>
+    <string name="score_trainability">Trainability</string>
+    <string name="score_reactive">Reactive</string>
+    <string name="score_shy">Shy</string>
+    <string name="score_special_needs">Special needs</string>
+    <string name="score_daily_activity">Daily activity</string>
+
+    <!-- Video -->
+    <string name="detail_watch_video">Watch video</string>
 
     <!-- Errors -->
     <string name="error_generic">An error occurred</string>

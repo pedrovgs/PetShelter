@@ -12,7 +12,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-enum class AgeFilter(val maxMonths: Int, val label: String) {
+enum class AgeFilter(
+    val maxMonths: Int,
+    val label: String,
+) {
     UP_TO_6_MONTHS(6, "\u2264 6 months"),
     UP_TO_1_YEAR(12, "\u2264 1 year"),
     UP_TO_2_YEARS(24, "\u2264 2 years"),

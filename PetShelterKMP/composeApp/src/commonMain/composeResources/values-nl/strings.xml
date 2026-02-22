@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PetShelter</string>
+
+    <!-- Navigation -->
+    <string name="nav_dogs_to_adopt">Honden</string>
+    <string name="nav_cats_to_adopt">Katten</string>
+    <string name="nav_center_info">Centrum</string>
+    <string name="nav_contact">Contact</string>
+    <string name="sidebar_version">v%1$s</string>
+
+    <!-- Placeholder pages -->
+    <string name="coming_soon_title">Binnenkort beschikbaar!</string>
+    <string name="coming_soon_dogs_message">We bereiden een lijst voor van schattige honden die op zoek zijn naar een thuis voor altijd. Kom snel terug!</string>
+    <string name="coming_soon_cats_message">We bereiden een lijst voor van lieve katten die je graag willen ontmoeten. Kom snel terug!</string>
+
+    <!-- Center Info -->
+    <string name="center_info_title">Het Centrum</string>
+    <string name="center_info_organization">Sociedad Protectora de Animales de Malaga</string>
+    <string name="center_info_about_title">Over Ons</string>
+    <string name="center_info_about_description">De Sociedad Protectora de Animales de Malaga is een non-profitorganisatie die zich toelegt op het redden, rehabiliteren en herhuisvesten van verlaten en mishandelde dieren in de provincie Malaga. Opgericht met de missie om elk dier een tweede kans te geven, werken we onvermoeibaar om ervoor te zorgen dat honden en katten in onze zorg de liefde, medische aandacht en onderdak krijgen die ze verdienen terwijl ze wachten op hun definitieve gezinnen.</string>
+    <string name="center_info_mission_title">Onze Missie</string>
+    <string name="center_info_mission_description">Wij geloven dat elk dier een leven verdient vrij van lijden. Onze missie is om dieren in nood te redden, hen diergeneeskundige zorg en rehabilitatie te bieden, verantwoordelijk huisdierbezit te bevorderen door educatie en liefdevolle permanente thuizen te vinden voor elk dier dat door onze deuren komt. We werken ook nauw samen met lokale autoriteiten en gemeenschappen om dierenverlating te verminderen.</string>
+    <string name="center_info_services_title">Wat We Doen</string>
+    <string name="center_info_service_rescue">Verlaten, verloren en mishandelde dieren redden en opvangen</string>
+    <string name="center_info_service_veterinary">Uitgebreide diergeneeskundige zorg bieden inclusief vaccinaties, sterilisatie en behandeling</string>
+    <string name="center_info_service_adoption">Verantwoordelijke adoptieprocessen beheren om dieren te koppelen aan liefdevolle gezinnen</string>
+    <string name="center_info_service_education">Educatieve programma\'s uitvoeren over dierenwelzijn en verantwoordelijk eigenaarschap</string>
+    <string name="center_info_service_sterilization">Sterilisatiecampagnes promoten om de zwerfdierpopulatie te beheersen</string>
+    <string name="center_info_visiting_title">Bezoektijden</string>
+    <string name="center_info_visiting_weekdays">Maandag tot vrijdag: 10:00 - 14:00 en 16:00 - 18:00</string>
+    <string name="center_info_visiting_weekends">Zaterdag, zondag en feestdagen: 10:00 - 14:00</string>
+    <string name="center_info_visiting_note">We raden aan vooraf te bellen om uw bezoek te regelen en ervoor te zorgen dat we u de beste aandacht kunnen geven.</string>
+    <string name="center_info_location_title">Locatie</string>
+    <string name="center_info_address">Camino de las Erizas, 4, 29011 Malaga</string>
+    <string name="center_info_phone">951 946 977</string>
+    <string name="center_info_email">contacto@protectoramalaga.com</string>
+    <string name="center_info_social_title">Volg Ons</string>
+    <string name="center_info_social_description">Blijf verbonden met ons op sociale media om onze laatste reddingen, adoptiesuccessen en aankomende evenementen te zien.</string>
+    <string name="center_info_help_title">Hoe U Kunt Helpen</string>
+    <string name="center_info_help_adopt">Adopteer een harig vriendje en geef hem een tweede kans</string>
+    <string name="center_info_help_volunteer">Doneer uw tijd als vrijwilliger in het asiel</string>
+    <string name="center_info_help_donate">Doe een donatie om ons werk te ondersteunen</string>
+    <string name="center_info_help_foster">Word pleeggezin voor dieren die wachten op adoptie</string>
+    <string name="center_info_help_spread">Deel onze berichten en help ons het woord te verspreiden</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Neem Contact Op</string>
+    <string name="contact_form_title">Stuur Ons een Bericht</string>
+    <string name="contact_form_name">Uw naam</string>
+    <string name="contact_form_email">Uw e-mail</string>
+    <string name="contact_form_subject">Onderwerp</string>
+    <string name="contact_form_message">Uw bericht</string>
+    <string name="contact_form_send">Bericht Versturen</string>
+    <string name="contact_direct_title">Direct Contact</string>
+    <string name="contact_address_label">Adres</string>
+    <string name="contact_phone_label">Telefoon</string>
+    <string name="contact_email_label">E-mail</string>
+    <string name="contact_social_title">Sociale Media</string>
+    <string name="contact_map_title">Vind Ons</string>
+    <string name="contact_map_placeholder">Kaart: Camino de las Erizas, 4, 29011 Malaga</string>
+
+    <!-- Animal List -->
+    <string name="filter_all_sexes">Alle Geslachten</string>
+    <string name="filter_all_sizes">Alle Maten</string>
+    <string name="filter_all_breeds">Alle Rassen</string>
+    <string name="filter_all_ages">Alle Leeftijden</string>
+    <string name="filter_sex_female">Vrouwelijk</string>
+    <string name="filter_sex_male">Mannelijk</string>
+    <string name="filter_size_small">Klein</string>
+    <string name="filter_size_medium">Middel</string>
+    <string name="filter_size_large">Groot</string>
+    <string name="filter_size_extra_large">Extra Groot</string>
+    <string name="size_label_small">S</string>
+    <string name="size_label_medium">M</string>
+    <string name="size_label_large">L</string>
+    <string name="size_label_extra_large">XL</string>
+    <string name="animals_results_count">%1$d dieren gevonden</string>
+    <string name="animals_empty_message">Geen dieren komen overeen met uw huidige filters. Probeer uw zoekcriteria aan te passen.</string>
+
+    <!-- Animal Detail -->
+    <string name="detail_description">Beschrijving</string>
+    <string name="detail_scores">Persoonlijkheidskenmerken</string>
+    <string name="detail_videos">Video\'s</string>
+    <string name="detail_source">Bron</string>
+    <string name="detail_scores_disclaimer">Deze scores zijn schattingen gebaseerd op algemene raskenmerken en observaties in het asiel. Elk dier is uniek en geweldig — we moedigen u aan ons te bezoeken en ze persoonlijk te ontmoeten!</string>
+
+    <!-- Score Labels -->
+    <string name="score_friendly">Vriendelijk</string>
+    <string name="score_good_with_animals">Goed met dieren</string>
+    <string name="score_good_with_humans">Goed met mensen</string>
+    <string name="score_leash_trained">Riemtraining</string>
+    <string name="score_energy">Energie</string>
+    <string name="score_activity">Activiteit</string>
+    <string name="score_trainability">Traineerbaarheid</string>
+    <string name="score_reactive">Reactief</string>
+    <string name="score_shy">Verlegen</string>
+    <string name="score_special_needs">Speciale behoeften</string>
+    <string name="score_daily_activity">Dagelijkse activiteit</string>
+
+    <!-- Video -->
+    <string name="detail_watch_video">Video bekijken</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Er is een fout opgetreden</string>
+
+    <!-- Common -->
+    <string name="back">Terug</string>
+    <string name="close">Sluiten</string>
+    <string name="cancel">Annuleren</string>
+    <string name="confirm">Bevestigen</string>
+    <string name="delete">Verwijderen</string>
+    <string name="save">Opslaan</string>
+    <string name="search">Zoeken</string>
+</resources>

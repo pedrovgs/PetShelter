@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import coil3.ImageLoader
 import coil3.compose.setSingletonImageLoaderFactory
+import coil3.network.ktor3.KtorNetworkFetcherFactory
 import coil3.request.crossfade
 import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.di.appModule
@@ -23,6 +24,7 @@ fun App(platformKoinConfig: KoinAppDeclaration = {}) {
         setSingletonImageLoaderFactory { context ->
             ImageLoader
                 .Builder(context)
+                .components { add(KtorNetworkFetcherFactory()) }
                 .crossfade(true)
                 .build()
         }

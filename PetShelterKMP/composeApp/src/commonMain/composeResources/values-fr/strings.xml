@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PetShelter</string>
+
+    <!-- Navigation -->
+    <string name="nav_dogs_to_adopt">Chiens</string>
+    <string name="nav_cats_to_adopt">Chats</string>
+    <string name="nav_center_info">Centre</string>
+    <string name="nav_contact">Contact</string>
+    <string name="sidebar_version">v%1$s</string>
+
+    <!-- Placeholder pages -->
+    <string name="coming_soon_title">Bientot disponible !</string>
+    <string name="coming_soon_dogs_message">Nous preparons une liste d\'adorables chiens a la recherche d\'un foyer pour toujours. Revenez bientot !</string>
+    <string name="coming_soon_cats_message">Nous preparons une liste de charmants chats qui attendent de vous rencontrer. Revenez bientot !</string>
+
+    <!-- Center Info -->
+    <string name="center_info_title">Le Centre</string>
+    <string name="center_info_organization">Sociedad Protectora de Animales de Malaga</string>
+    <string name="center_info_about_title">A Propos de Nous</string>
+    <string name="center_info_about_description">La Sociedad Protectora de Animales de Malaga est une organisation a but non lucratif dediee au sauvetage, a la rehabilitation et au replacement des animaux abandonnes et maltraites dans la province de Malaga. Fondee avec la mission de donner a chaque animal une seconde chance, nous travaillons sans relache pour garantir que les chiens et chats dont nous avons la charge recoivent l\'amour, les soins medicaux et l\'abri qu\'ils meritent en attendant leur famille definitive.</string>
+    <string name="center_info_mission_title">Notre Mission</string>
+    <string name="center_info_mission_description">Nous croyons que chaque animal merite une vie sans souffrance. Notre mission est de secourir les animaux en detresse, de leur fournir des soins veterinaires et une rehabilitation, de promouvoir la possession responsable d\'animaux par l\'education et de trouver des foyers permanents et aimants pour chaque animal qui passe nos portes. Nous travaillons egalement en etroite collaboration avec les autorites locales et les communautes pour reduire l\'abandon animal.</string>
+    <string name="center_info_services_title">Ce Que Nous Faisons</string>
+    <string name="center_info_service_rescue">Secourir et heberger les animaux abandonnes, perdus et maltraites</string>
+    <string name="center_info_service_veterinary">Fournir des soins veterinaires complets incluant vaccinations, sterilisation et traitements</string>
+    <string name="center_info_service_adoption">Gerer des processus d\'adoption responsable pour associer les animaux a des familles aimantes</string>
+    <string name="center_info_service_education">Mener des programmes educatifs sur le bien-etre animal et la possession responsable</string>
+    <string name="center_info_service_sterilization">Promouvoir des campagnes de sterilisation pour controler la population errante</string>
+    <string name="center_info_visiting_title">Heures de Visite</string>
+    <string name="center_info_visiting_weekdays">Lundi au vendredi : 10h00 - 14h00 et 16h00 - 18h00</string>
+    <string name="center_info_visiting_weekends">Samedis, dimanches et jours feries : 10h00 - 14h00</string>
+    <string name="center_info_visiting_note">Nous vous recommandons d\'appeler a l\'avance pour organiser votre visite et nous assurer de vous offrir la meilleure attention.</string>
+    <string name="center_info_location_title">Emplacement</string>
+    <string name="center_info_address">Camino de las Erizas, 4, 29011 Malaga</string>
+    <string name="center_info_phone">951 946 977</string>
+    <string name="center_info_email">contacto@protectoramalaga.com</string>
+    <string name="center_info_social_title">Suivez-nous</string>
+    <string name="center_info_social_description">Restez connecte avec nous sur les reseaux sociaux pour voir nos derniers sauvetages, nos histoires d\'adoption reussies et nos evenements a venir.</string>
+    <string name="center_info_help_title">Comment Vous Pouvez Aider</string>
+    <string name="center_info_help_adopt">Adoptez un compagnon a fourrure et donnez-lui une seconde chance</string>
+    <string name="center_info_help_volunteer">Donnez de votre temps comme benevole au refuge</string>
+    <string name="center_info_help_donate">Faites un don pour soutenir notre travail</string>
+    <string name="center_info_help_foster">Devenez famille d\'accueil pour les animaux en attente d\'adoption</string>
+    <string name="center_info_help_spread">Partagez nos publications et aidez-nous a faire passer le message</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Contactez-nous</string>
+    <string name="contact_form_title">Envoyez-nous un Message</string>
+    <string name="contact_form_name">Votre nom</string>
+    <string name="contact_form_email">Votre email</string>
+    <string name="contact_form_subject">Sujet</string>
+    <string name="contact_form_message">Votre message</string>
+    <string name="contact_form_send">Envoyer le Message</string>
+    <string name="contact_direct_title">Contact Direct</string>
+    <string name="contact_address_label">Adresse</string>
+    <string name="contact_phone_label">Telephone</string>
+    <string name="contact_email_label">Email</string>
+    <string name="contact_social_title">Reseaux Sociaux</string>
+    <string name="contact_map_title">Trouvez-nous</string>
+    <string name="contact_map_placeholder">Carte : Camino de las Erizas, 4, 29011 Malaga</string>
+
+    <!-- Animal List -->
+    <string name="filter_all_sexes">Tous les Sexes</string>
+    <string name="filter_all_sizes">Toutes les Tailles</string>
+    <string name="filter_all_breeds">Toutes les Races</string>
+    <string name="filter_all_ages">Tous les Ages</string>
+    <string name="filter_sex_female">Femelle</string>
+    <string name="filter_sex_male">Male</string>
+    <string name="filter_size_small">Petit</string>
+    <string name="filter_size_medium">Moyen</string>
+    <string name="filter_size_large">Grand</string>
+    <string name="filter_size_extra_large">Tres Grand</string>
+    <string name="size_label_small">S</string>
+    <string name="size_label_medium">M</string>
+    <string name="size_label_large">L</string>
+    <string name="size_label_extra_large">XL</string>
+    <string name="animals_results_count">%1$d animaux trouves</string>
+    <string name="animals_empty_message">Aucun animal ne correspond a vos filtres actuels. Essayez d\'ajuster vos criteres de recherche.</string>
+
+    <!-- Animal Detail -->
+    <string name="detail_description">Description</string>
+    <string name="detail_scores">Attributs de Personnalite</string>
+    <string name="detail_videos">Videos</string>
+    <string name="detail_source">Source</string>
+    <string name="detail_scores_disclaimer">Ces scores sont estimes a partir des caracteristiques generales de la race et des observations du refuge. Chaque animal est unique et merveilleux — nous vous encourageons a venir les rencontrer en personne !</string>
+
+    <!-- Score Labels -->
+    <string name="score_friendly">Amical</string>
+    <string name="score_good_with_animals">Bon avec les animaux</string>
+    <string name="score_good_with_humans">Bon avec les humains</string>
+    <string name="score_leash_trained">Marche en laisse</string>
+    <string name="score_energy">Energie</string>
+    <string name="score_activity">Activite</string>
+    <string name="score_trainability">Educabilite</string>
+    <string name="score_reactive">Reactif</string>
+    <string name="score_shy">Timide</string>
+    <string name="score_special_needs">Besoins speciaux</string>
+    <string name="score_daily_activity">Activite quotidienne</string>
+
+    <!-- Video -->
+    <string name="detail_watch_video">Regarder la video</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Une erreur est survenue</string>
+
+    <!-- Common -->
+    <string name="back">Retour</string>
+    <string name="close">Fermer</string>
+    <string name="cancel">Annuler</string>
+    <string name="confirm">Confirmer</string>
+    <string name="delete">Supprimer</string>
+    <string name="save">Enregistrer</string>
+    <string name="search">Rechercher</string>
+</resources>

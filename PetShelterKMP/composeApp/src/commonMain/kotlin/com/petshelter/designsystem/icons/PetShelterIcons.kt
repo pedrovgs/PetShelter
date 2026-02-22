@@ -1692,6 +1692,26 @@ object PetShelterIcons {
             }.build()
     }
 
+    val PlayArrow: ImageVector by lazy {
+        ImageVector
+            .Builder(
+                name = "PlayArrow",
+                defaultWidth = 24.dp,
+                defaultHeight = 24.dp,
+                viewportWidth = 24f,
+                viewportHeight = 24f,
+            ).apply {
+                path(
+                    fill = SolidColor(Color.Black),
+                ) {
+                    moveTo(8f, 5f)
+                    lineTo(19f, 12f)
+                    lineTo(8f, 19f)
+                    close()
+                }
+            }.build()
+    }
+
     val ZoomOut: ImageVector by lazy {
         ImageVector
             .Builder(

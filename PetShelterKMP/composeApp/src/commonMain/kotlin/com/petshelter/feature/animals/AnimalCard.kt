@@ -34,6 +34,15 @@ import com.petshelter.designsystem.PetShelterTheme
 import com.petshelter.designsystem.PetShelterTypography
 import com.petshelter.designsystem.Radii
 import com.petshelter.designsystem.Spacing
+import com.petshelter.util.transformImageUrl
+import org.jetbrains.compose.resources.stringResource
+import petshelter.composeapp.generated.resources.Res
+import petshelter.composeapp.generated.resources.filter_sex_female
+import petshelter.composeapp.generated.resources.filter_sex_male
+import petshelter.composeapp.generated.resources.size_label_extra_large
+import petshelter.composeapp.generated.resources.size_label_large
+import petshelter.composeapp.generated.resources.size_label_medium
+import petshelter.composeapp.generated.resources.size_label_small
 
 @Composable
 fun AnimalCard(
@@ -68,7 +77,7 @@ private fun AnimalImage(
     ) {
         if (imageUrl != null) {
             SubcomposeAsyncImage(
-                model = imageUrl,
+                model = transformImageUrl(imageUrl),
                 contentDescription = name,
                 modifier = Modifier.matchParentSize(),
                 contentScale = ContentScale.Crop,
@@ -123,7 +132,7 @@ private fun AnimalCardContent(animal: Animal) {
             horizontalArrangement = Arrangement.spacedBy(Spacing.XSmall),
             verticalArrangement = Arrangement.spacedBy(Spacing.XSmall),
         ) {
-            AnimalBadge(text = sexEmoji(animal.sex) + " " + animal.sex)
+            AnimalBadge(text = sexSymbol(animal.sex) + " " + sexDisplayLabel(animal.sex))
             AnimalBadge(text = sizeLabel(animal.size))
             animal.ageMonths?.let { months ->
                 AnimalBadge(text = formatAge(months))
@@ -153,19 +162,28 @@ fun AnimalBadge(
     }
 }
 
-private fun sexEmoji(sex: String): String =
+internal fun sexSymbol(sex: String): String =
     when (sex) {
         "Hembra" -> "\u2640\uFE0F"
         "Macho" -> "\u2642\uFE0F"
         else -> ""
     }
 
+@Composable
+internal fun sexDisplayLabel(sex: String): String =
+    when (sex) {
+        "Hembra" -> stringResource(Res.string.filter_sex_female)
+        "Macho" -> stringResource(Res.string.filter_sex_male)
+        else -> sex
+    }
+
+@Composable
 internal fun sizeLabel(size: AnimalSize): String =
     when (size) {
-        AnimalSize.SMALL -> "S"
-        AnimalSize.MEDIUM -> "M"
-        AnimalSize.LARGE -> "L"
-        AnimalSize.EXTRA_LARGE -> "XL"
+        AnimalSize.SMALL -> stringResource(Res.string.size_label_small)
+        AnimalSize.MEDIUM -> stringResource(Res.string.size_label_medium)
+        AnimalSize.LARGE -> stringResource(Res.string.size_label_large)
+        AnimalSize.EXTRA_LARGE -> stringResource(Res.string.size_label_extra_large)
     }
 
 internal fun formatAge(months: Int): String {

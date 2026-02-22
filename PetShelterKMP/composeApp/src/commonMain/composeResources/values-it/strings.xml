@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">PetShelter</string>
+
+    <!-- Navigation -->
+    <string name="nav_dogs_to_adopt">Cani</string>
+    <string name="nav_cats_to_adopt">Gatti</string>
+    <string name="nav_center_info">Centro</string>
+    <string name="nav_contact">Contatto</string>
+    <string name="sidebar_version">v%1$s</string>
+
+    <!-- Placeholder pages -->
+    <string name="coming_soon_title">Prossimamente!</string>
+    <string name="coming_soon_dogs_message">Stiamo preparando una lista di adorabili cani in cerca di una casa per sempre. Torna presto!</string>
+    <string name="coming_soon_cats_message">Stiamo preparando una lista di deliziosi gatti che aspettano di conoscerti. Torna presto!</string>
+
+    <!-- Center Info -->
+    <string name="center_info_title">Il Centro</string>
+    <string name="center_info_organization">Sociedad Protectora de Animales de Malaga</string>
+    <string name="center_info_about_title">Chi Siamo</string>
+    <string name="center_info_about_description">La Sociedad Protectora de Animales de Malaga e un\'organizzazione senza scopo di lucro dedicata al salvataggio, alla riabilitazione e al ricollocamento di animali abbandonati e maltrattati nella provincia di Malaga. Fondata con la missione di dare a ogni animale una seconda possibilita, lavoriamo instancabilmente per garantire che i cani e i gatti nelle nostre cure ricevano l\'amore, le cure mediche e il rifugio che meritano mentre aspettano le loro famiglie definitive.</string>
+    <string name="center_info_mission_title">La Nostra Missione</string>
+    <string name="center_info_mission_description">Crediamo che ogni animale meriti una vita libera dalla sofferenza. La nostra missione e salvare gli animali in difficolta, fornire loro cure veterinarie e riabilitazione, promuovere la proprieta responsabile degli animali attraverso l\'educazione e trovare case permanenti e amorevoli per ogni animale che passa dalle nostre porte. Lavoriamo anche a stretto contatto con le autorita locali e le comunita per ridurre l\'abbandono degli animali.</string>
+    <string name="center_info_services_title">Cosa Facciamo</string>
+    <string name="center_info_service_rescue">Salvare e ospitare animali abbandonati, persi e maltrattati</string>
+    <string name="center_info_service_veterinary">Fornire cure veterinarie complete tra cui vaccinazioni, sterilizzazione e trattamento</string>
+    <string name="center_info_service_adoption">Gestire processi di adozione responsabile per abbinare gli animali a famiglie amorevoli</string>
+    <string name="center_info_service_education">Condurre programmi educativi sul benessere degli animali e la proprieta responsabile</string>
+    <string name="center_info_service_sterilization">Promuovere campagne di sterilizzazione per controllare la popolazione randagia</string>
+    <string name="center_info_visiting_title">Orari di Visita</string>
+    <string name="center_info_visiting_weekdays">Da lunedi a venerdi: 10:00 - 14:00 e 16:00 - 18:00</string>
+    <string name="center_info_visiting_weekends">Sabato, domenica e festivi: 10:00 - 14:00</string>
+    <string name="center_info_visiting_note">Si consiglia di chiamare in anticipo per organizzare la visita e assicurarvi la migliore attenzione.</string>
+    <string name="center_info_location_title">Posizione</string>
+    <string name="center_info_address">Camino de las Erizas, 4, 29011 Malaga</string>
+    <string name="center_info_phone">951 946 977</string>
+    <string name="center_info_email">contacto@protectoramalaga.com</string>
+    <string name="center_info_social_title">Seguici</string>
+    <string name="center_info_social_description">Resta connesso con noi sui social media per vedere i nostri ultimi salvataggi, le storie di adozione di successo e gli eventi in arrivo.</string>
+    <string name="center_info_help_title">Come Puoi Aiutare</string>
+    <string name="center_info_help_adopt">Adotta un amico peloso e dagli una seconda possibilita</string>
+    <string name="center_info_help_volunteer">Dona il tuo tempo come volontario al rifugio</string>
+    <string name="center_info_help_donate">Fai una donazione per sostenere il nostro lavoro</string>
+    <string name="center_info_help_foster">Diventa famiglia affidataria per animali in attesa di adozione</string>
+    <string name="center_info_help_spread">Condividi i nostri post e aiutaci a diffondere il messaggio</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Contattaci</string>
+    <string name="contact_form_title">Inviaci un Messaggio</string>
+    <string name="contact_form_name">Il tuo nome</string>
+    <string name="contact_form_email">La tua email</string>
+    <string name="contact_form_subject">Oggetto</string>
+    <string name="contact_form_message">Il tuo messaggio</string>
+    <string name="contact_form_send">Invia Messaggio</string>
+    <string name="contact_direct_title">Contatto Diretto</string>
+    <string name="contact_address_label">Indirizzo</string>
+    <string name="contact_phone_label">Telefono</string>
+    <string name="contact_email_label">Email</string>
+    <string name="contact_social_title">Social Media</string>
+    <string name="contact_map_title">Trovaci</string>
+    <string name="contact_map_placeholder">Mappa: Camino de las Erizas, 4, 29011 Malaga</string>
+
+    <!-- Animal List -->
+    <string name="filter_all_sexes">Tutti i Sessi</string>
+    <string name="filter_all_sizes">Tutte le Taglie</string>
+    <string name="filter_all_breeds">Tutte le Razze</string>
+    <string name="filter_all_ages">Tutte le Eta</string>
+    <string name="filter_sex_female">Femmina</string>
+    <string name="filter_sex_male">Maschio</string>
+    <string name="filter_size_small">Piccolo</string>
+    <string name="filter_size_medium">Medio</string>
+    <string name="filter_size_large">Grande</string>
+    <string name="filter_size_extra_large">Extra Grande</string>
+    <string name="size_label_small">S</string>
+    <string name="size_label_medium">M</string>
+    <string name="size_label_large">L</string>
+    <string name="size_label_extra_large">XL</string>
+    <string name="animals_results_count">%1$d animali trovati</string>
+    <string name="animals_empty_message">Nessun animale corrisponde ai tuoi filtri attuali. Prova a modificare i criteri di ricerca.</string>
+
+    <!-- Animal Detail -->
+    <string name="detail_description">Descrizione</string>
+    <string name="detail_scores">Attributi di Personalita</string>
+    <string name="detail_videos">Video</string>
+    <string name="detail_source">Fonte</string>
+    <string name="detail_scores_disclaimer">Questi punteggi sono stime basate sulle caratteristiche generali della razza e sulle osservazioni del rifugio. Ogni animale e unico e meraviglioso — ti incoraggiamo a visitarci e conoscerli di persona!</string>
+
+    <!-- Score Labels -->
+    <string name="score_friendly">Amichevole</string>
+    <string name="score_good_with_animals">Buono con gli animali</string>
+    <string name="score_good_with_humans">Buono con gli umani</string>
+    <string name="score_leash_trained">Condotta al guinzaglio</string>
+    <string name="score_energy">Energia</string>
+    <string name="score_activity">Attivita</string>
+    <string name="score_trainability">Addestrabilita</string>
+    <string name="score_reactive">Reattivo</string>
+    <string name="score_shy">Timido</string>
+    <string name="score_special_needs">Bisogni speciali</string>
+    <string name="score_daily_activity">Attivita quotidiana</string>
+
+    <!-- Video -->
+    <string name="detail_watch_video">Guarda il video</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Si e verificato un errore</string>
+
+    <!-- Common -->
+    <string name="back">Indietro</string>
+    <string name="close">Chiudi</string>
+    <string name="cancel">Annulla</string>
+    <string name="confirm">Conferma</string>
+    <string name="delete">Elimina</string>
+    <string name="save">Salva</string>
+    <string name="search">Cerca</string>
+</resources>
