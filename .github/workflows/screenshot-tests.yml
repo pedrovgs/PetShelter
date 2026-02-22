@@ -1,0 +1,46 @@
+name: Screenshot Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: screenshot-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: GoodnotesKMP
+
+jobs:
+  verify-screenshots:
+    name: Verify Screenshots
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Verify screenshot tests
+        run: ./gradlew :screenshotTests:verifyPaparazziDebug
+
+      - name: Upload failure diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshot-failure-diffs
+          path: GoodnotesKMP/screenshotTests/build/paparazzi/failures/
+          retention-days: 14

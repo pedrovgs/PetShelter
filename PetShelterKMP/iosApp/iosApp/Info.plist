@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>en-GB</string>
+		<string>es</string>
+		<string>zh-Hans</string>
+		<string>zh-Hant</string>
+		<string>ko</string>
+		<string>ja</string>
+		<string>ru</string>
+		<string>de</string>
+		<string>fr</string>
+		<string>it</string>
+		<string>nl</string>
+		<string>pt-BR</string>
+		<string>pt</string>
+		<string>tr</string>
+	</array>
+</dict>
+</plist>

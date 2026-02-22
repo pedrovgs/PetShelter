@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Running pre-commit checks..."
+
+# Get the list of staged Kotlin files
+STAGED_KT_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.kts?$' || true)
+
+if [ -z "$STAGED_KT_FILES" ]; then
+    echo "No Kotlin files staged. Skipping checks."
+    exit 0
+fi
+
+# Auto-fix formatting issues with ktlint
+echo "Running ktlintFormat (auto-fix)..."
+if ! ./gradlew ktlintFormat --quiet 2>&1; then
+    echo "ktlintFormat failed. Please check the output above."
+    exit 1
+fi
+
+# Re-stage files that were auto-fixed
+for file in $STAGED_KT_FILES; do
+    if [ -f "$file" ]; then
+        git add "$file"
+    fi
+done
+
+# Run detekt for lint checks (use detektMetadataCommonMain for KMP source analysis)
+echo "Running detekt..."
+if ! ./gradlew :composeApp:detektMetadataCommonMain --quiet 2>&1; then
+    echo ""
+    echo "Detekt found issues that cannot be auto-fixed."
+    echo "Please fix the issues above and try again."
+    exit 1
+fi
+
+echo "All pre-commit checks passed."

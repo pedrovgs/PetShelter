@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+
+    <!-- Background rounded rect -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#E6E5E4"
+        android:strokeWidth="0.5"
+        android:pathData="M7,1L21,1C24.31,1 27,3.69 27,7L27,21C27,24.31 24.31,27 21,27L7,27C3.69,27 1,24.31 1,21L1,7C1,3.69 3.69,1 7,1Z" />
+
+    <!-- Top cyan line -->
+    <path
+        android:fillColor="#00B6D7"
+        android:pathData="M6.25,7L15.75,7C16.44,7 17,7.56 17,8.25C17,8.94 16.44,9.5 15.75,9.5L6.25,9.5C5.56,9.5 5,8.94 5,8.25C5,7.56 5.56,7 6.25,7Z" />
+
+    <!-- Bottom cyan line -->
+    <path
+        android:fillColor="#00B6D7"
+        android:pathData="M6.25,12L12.75,12C13.44,12 14,12.56 14,13.25C14,13.94 13.44,14.5 12.75,14.5L6.25,14.5C5.56,14.5 5,13.94 5,13.25C5,12.56 5.56,12 6.25,12Z" />
+
+    <!-- Cyan curve -->
+    <path
+        android:strokeColor="#00B6D7"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M5.5,19.5C5.5,19.5 7,21.5 10,21.5C13,21.5 15.5,18 15.5,18" />
+
+    <!-- Black pen -->
+    <path
+        android:fillColor="#111213"
+        android:pathData="M22.5,5.5C22.2,5.1 21.7,4.8 21.1,4.6C20.3,4.3 19.3,4.8 18.9,5.5L15.5,13.5C15.4,13.7 15.3,13.9 15.2,14.2L15.1,14.4L15.1,14.5L14.8,18.5C14.8,18.8 15,19 15.2,19.1C15.4,19.2 15.7,19.2 15.9,19L18.5,16.4C19.1,15.8 19.3,15.5 19.4,15.2L22.8,7.2C23.2,6.3 23,5.8 22.5,5.5Z" />
+</vector>
